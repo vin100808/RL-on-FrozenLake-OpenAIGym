@@ -1,5 +1,7 @@
 # ECE499 Report : Reinforcement Learning
 
+### Supervised by Professor. Mark Crowley
+
 ##### By Vincent Lin
 
 ##### Computer Engineering
