@@ -12,7 +12,7 @@
 
 ### Background
 
-The purpose of this report is to examine various Reinforcement Learning (RL) algorithms on different simulated environments provided by OpenAI gym (OpenAI). The goal is to study the performance of the algorithms depending on the types of environment.
+The purpose of this report is to examine various Reinforcement Learning (RL) algorithms on different simulated environments provided by OpenAI gym (OpenAI). The goal is to study the performance of the algorithms on various domains.
 
 ### Reinforcement Learning (RL)
 
@@ -58,11 +58,7 @@ The results of this report are produced on a MacBook Pro (2016), with a processo
 
 ### State-action-reward-state-action (SARSA)
 
-SARSA is an on-policy temporal difference (TD) control method. This algorithm has a Q table where each row and column represents the state and action respectively, the values in the Q table represents the expected long term reward by taking that action in that state. TD is an approach used to update this table, as described by Barto, "TD is an approach to learning how to predict a quantity that depends on future values of a given signal" (Barto, 2007). 
-
-TD represents the policy when it comes to updating the Q values, and on-policy means that SARSA chooses the next action based on the same policy. To be more specific, 
-
-
+SARSA is an on-policy temporal difference (TD) control method. The algorithm uses π-greedy policy for both choosing an action and updating the Q value, and therefore is an on-policy algorithm. The pseudo code is:
 
  ```pseudocode
  Initialize Q(s, a), for all s ∈ S, a ∈ A(s), arbitrarily, and Q(terminal-state, ·) = 0 Repeat (for each episode):
@@ -75,6 +71,12 @@ TD represents the policy when it comes to updating the Q values, and on-policy m
  		S ← S′; A ← A′;
  	until S is terminal
  ```
+
+(Sutton & Barto, 2020, p. 106)
+
+The code initializes Q tables based on the environment-specific spaces (states and actions). Then for each episodes, SARSA resets the game by resetting the states, then immediately choose an action using the π-greedy policy, it could be a random action or the best action derived from the Q table depending on the π value.
+
+After taking an action 
 
 
 
