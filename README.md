@@ -143,7 +143,7 @@ Personalized initialization includes:
 
 The resulting graph is (can be found under `./src/graphs/SARSA_Frozen.png`):
 
-![SARSA_Frozen](/Users/zzzh/Documents/university/Winter2022[4B]/ece499/src/graphs/SARSA_Frozen.png)
+![SARSA_Frozen](/Users/zzzh/Documents/University of Waterloo/Winter2022[4B]/ece499/src/graphs/SARSA_Frozen.png)
 
 This scatter plot graph illustrates the average number of rewards calculated in batches of 50 episodes vs. the ith episodes. To be more specific, for every 50th episode, the average reward from the previous 50 episodes is calculated. Therefore, for 1000 episodes, there should be 20 data points. Note that the maiximum average reward can be achieve is 1, because the implementation did not add any additional rewards (e.g. extra rewards for staying alive). We could observe that SARSA was able to find its first solution quickly and slowly fixate on this solution from around episode 150 to 250. It took around 100 episodes to transition to this solution. This graph achieved a success rate of 80.1%, which means out of 1000 episodes, 801 of them were successful.
 
@@ -169,7 +169,7 @@ Personalized initialization includes:
 
 The resulting graph is (can be found under `./src/graphs/QL_Frozen.png`):
 
-![QL_Frozen](/Users/zzzh/Documents/university/Winter2022[4B]/ece499/src/graphs/QL_Frozen.png)
+![QL_Frozen](/Users/zzzh/Documents/University of Waterloo/Winter2022[4B]/ece499/src/graphs/QL_Frozen.png)
 
 We could observe from the graph that once the agent finds a solution successfully, it will converge and fixate to that path relatively quick. From around episode 100 to 300, it only took 200 episodes and after that, the average reward became stable at 1 (with some exceptions). Lastly, the graph achieved a success rate of 88.8%.
 
@@ -193,7 +193,7 @@ However, `R` is always 0 unless the goal state is reach, and therefore the agent
 
 Moreover, the Q table was initialized to be all values of a small and identical number. Initially I used randomized small numbers across the table, however, that reduces the performance of the program. I reckon this is because when initialized with random numbers, some actions are already superior than others (if it has a higher random number). However, if the superior actions were the undesired actions, then the agent would take extra time to reduce the Q values of the undesired superior actions, and therefore reduces the performance. I believe an uniform initial Q table introduces more randomness than the randomized one, because in the beginning of the program, the agent treats all actions as the same and therefore could freely explore the options. Lastly, given π-greedy policy which brings intense exploration in the beginning was used, it already serve the purpose of randomization. As the agent slowly transition from exploration to exploitation, the Q table is already refined and ready to be exploit. To further prove my point, this is the resulting graph of QL on FrozenLake-v0 using randomized initial Q table (can be found in `./src/graphs/QL_Random_Frozen.png`):
 
-![QL_Random_Frozen](/Users/zzzh/Documents/university/Winter2022[4B]/ece499/src/graphs/QL_Random_Frozen.png)
+![QL_Random_Frozen](/Users/zzzh/Documents/University of Waterloo/Winter2022[4B]/ece499/src/graphs/QL_Random_Frozen.png)
 
 As illustrated from the graph, the program has a low success rate in the beginning compare to an uniform initial Q table and the overall success rate is at 78.6% (a 10% decrease compare to an uniform one).
 
